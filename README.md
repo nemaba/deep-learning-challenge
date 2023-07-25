@@ -2,25 +2,28 @@ Deep Learning Challenge
 
 Alphabet Soup performance of the deep learning model report
 
-The report should contain the following:
+Overview of the analysis: 
 
-*Overview of the analysis: Explain the purpose of this analysis.
-
-
-*Results: Using bulleted lists and images to support your answers, address the following questions:
+ The purpose of the analysis is to use the neural network tool in selecting the applicants of Alphabet Soup for funding their ventures with the best chance of success. The features in the dataset provided were used to create a binary classifier in predicting if applicants will be successful if funded.
 
 
-* Data Preprocessing
+Data Preprocessing:
+- In first attempt, "EIN" and "NAME" columns were dropped as this does not offer relevant data and help model to do better, and determined that the target variable is "IS_SUCCESSFUL"
+-the rest of the columns were used as features
 
-What variable(s) are the target(s) for your model?
-What variable(s) are the features for your model?
-What variable(s) should be removed from the input data because they are neither targets nor features?
+Compiling, Training, and Evaluating the Model:
 
-* Compiling, Training, and Evaluating the Model
-
-How many neurons, layers, and activation functions did you select for your neural network model, and why?
-Were you able to achieve the target model performance?
-What steps did you take in your attempts to increase model performance?
-
-
-*Summary: Summarize the overall results of the deep learning model. Include a recommendation for how a different model could solve this classification problem, and then explain your recommendation.
+- In first attempt, neural network consists of 80 neurons for first layer, 30 in second. Used relu activation for both layers, sigmoid for the output layer 
+ was used. In nonlinear data, relu do better. Please see layer1 images in images folder.
+- Performance metrics for first attempt is less than 75% which is 72.85%. Please see Evaluation1 image in images folder.
+- To increase model performance, the "NAME" column was added back. First layer was changed from 80 to 7, the second layer was 14 from 30. Third layer was added with 21 neurons. The third layer was added to reweight inputs from the second layer
+-  In optimisation, I add back the "NAME" column. Changed the first layer from 80 to 7 neurons, the second layer from 30 to 14 neurons, also added a third layer with 21 neurons. By adding a third layer, I wanted to give the model another chance to reweight the inputs from the second layer to the third. The accuracy of more than 75% was achieved now. It's 78.49%
+    
+Results:
+   - First attempt, the accuracy is 72.85%
+   - In Optimized, the accuracy is 78.49%
+   - 
+Summary:
+   From the analysis result, deep neural network helps come up a moderate useful binary classifier to predict if applicants will be successful for funding. 
+   After the optimazation test, the accuracy improved more than 75% to 78.49%. This was made by adding back the "NAME" column. The shape of the dataset is crucial before preprocessing.
+  
